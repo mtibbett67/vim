@@ -1,7 +1,6 @@
 # vim
 VIM configuration files
 
-For consistancy between users copy vimrc to root /root/.vimrc
-then create a simlink to the file in your user directory.
+Make the setup.sh executable with chmod +x
 
-example: # sudo ln -s /root/.vimrc ~/.vimrc
+Run setup.sh to copy the .vimrc to the current users home folder.
