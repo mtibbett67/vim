@@ -23,3 +23,6 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set title                " change the terminal's title
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set relativenumber
+execute pathogen#infect()
+filetype plugin indent on
