@@ -26,3 +26,12 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set relativenumber
 execute pathogen#infect()
 filetype plugin indent on
+centers the current pane as the middle 2 of 4 imaginary columns
+" should be called in a window with a single pane
+function CenterPane()
+lefta vnew
+wincmd w
+exec 'vertical resize '. string(&columns * 0.75)
+endfunction
+" optionally map it to a key:
+" nnoremap <leader>c :call CenterPane()<cr>
