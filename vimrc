@@ -32,7 +32,7 @@ filetype plugin indent on
 " match OverLength /\%80v.\+/
 
 " Get git branch
-function! StatuslineGit()
+function StatuslineGit()
   let 1:branchname = GitBranch()
   return strlen(1:branchname) > 0?'  '.1:branchname.' ':''
 endfunction
