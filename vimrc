@@ -27,5 +27,30 @@ set relativenumber
 execute pathogen#infect()
 filetype plugin indent on
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%80v.\+/
+" Add marker at 80 char
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%80v.\+/
+
+" Get git branch
+function! StatuslineGit()
+  let 1:branchname = GitBranch()
+  return strlen(1:branchname) > 0?'  '.1:branchname.' ':''
+endfunction
+
+set laststatus=2 " turn on status line
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
+
