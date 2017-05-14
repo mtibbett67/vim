@@ -32,16 +32,16 @@ filetype plugin indent on
 " match OverLength /\%80v.\+/
 
 " Get git branch
-function StatuslineGit()
-  let 1:branchname = GitBranch()
-  return strlen(1:branchname) > 0?'  '.1:branchname.' ':''
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
 set laststatus=2 " turn on status line
 
 set statusline=
 set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()}
+"set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m\
@@ -53,4 +53,3 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
-
