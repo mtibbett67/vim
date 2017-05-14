@@ -31,6 +31,14 @@ filetype plugin indent on
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%80v.\+/
 
+" load template into new files
+if has("autocmd")
+  augroup templates
+  autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+  autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.py
+  augroup END
+endif
+
 " Get git branch
 function! StatuslineGit()
   let l:branchname = GitBranch()
