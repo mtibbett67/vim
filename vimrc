@@ -39,7 +39,7 @@ set title                " change the terminal's title
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set relativenumber
-nnoremap <esc> :noh<return><esc>
+" nnoremap <esc> :noh<return><esc>
 execute pathogen#infect()
 filetype plugin indent on
 
