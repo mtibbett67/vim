@@ -17,7 +17,9 @@ function! StatuslineGit()
 	return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
-syntax on 
+syntax on
+set t_Co=256
+set background=dark
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -39,7 +41,7 @@ set title                " change the terminal's title
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set relativenumber
-" nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :noh<return><esc>
 execute pathogen#infect()
 filetype plugin indent on
 
@@ -63,3 +65,4 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
+autocmd BufWritePre * :%s/\s\+$//e
