@@ -17,6 +17,13 @@ function! StatuslineGit()
 	return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
+" automatically leave insert mode after 'updatetime' milliseconds of inaction
+autocmd CursorHoldI * stopinsert
+
+" set 'updatetime' to 15 seconds when in insert mode
+"au InsertEnter * let updaterestore=&updatetime | set updatetime=15000
+"au InsertLeave * let &updatetime=updaterestore
+
 syntax on
 set t_Co=256
 set background=dark
@@ -41,9 +48,13 @@ set title                " change the terminal's title
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set relativenumber
-nnoremap <esc> :noh<return><esc>
+" nnoremap <esc> :noh<return><esc>
 execute pathogen#infect()
 filetype plugin indent on
+
+" NEERDtree settings
+"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<cr>
 
 " Add marker at 80 char
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -65,4 +76,6 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
+
 autocmd BufWritePre * :%s/\s\+$//e
+call pathogen#helptags()
