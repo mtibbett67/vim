@@ -9,6 +9,6 @@ Run setup.sh to copy the .vimrc to the current users home folder.
 
 https://github.com/vim-plugins
 
-I am now using apt-vim to manage my plugins:
+I am now using apt-vim to manage my plugins:  
 https://github.com/egalpin/apt-vim
 
